@@ -14,7 +14,7 @@ import android.os.Environment;
 public class Media {
 	
 	/* 构建MediaPlayer对象 */   
-    public MediaPlayer mMediaPlayer = new MediaPlayer();//媒体播放器不存在??
+    public MediaPlayer mMediaPlayer = null;//媒体播放器不存在??
     /* 音乐的路径 */   
     public static final String MUSIC_PATH = new String("/mnt/sdcard/");
     /* 播放列表 */   
@@ -24,14 +24,13 @@ public class Media {
     	
 	public void initMediaPlayer()
 	{
+		mMediaPlayer = new MediaPlayer();
 		try {
 			File file = new File(Environment.getExternalStorageDirectory(),"music.mp3");
 			mMediaPlayer.setDataSource(file.getPath());
 			//mMediaPlayer.setDataSource("/mnt/sdcard/music.mp3");
 			mMediaPlayer.prepare();
-			if (!mMediaPlayer.isPlaying()) {
-				mMediaPlayer.start();
-			}
+			mMediaPlayer.start();
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
