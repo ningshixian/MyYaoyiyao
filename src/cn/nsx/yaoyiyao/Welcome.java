@@ -18,13 +18,13 @@ public class Welcome extends Activity {
       	Intent intent = new Intent();
 		intent.setClass(Welcome.this,Login.class);
 		startActivity(intent);
-		this.finish();
+		
       }  
     public void welcome_register(View v) {  
       	Intent intent = new Intent();
-		intent.setClass(Welcome.this,MainYaoyiyao.class);
+		intent.setClass(Welcome.this,Regist.class);
 		startActivity(intent);
-		this.finish();
+		
       }  
    
 }

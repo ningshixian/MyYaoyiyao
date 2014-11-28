@@ -37,7 +37,8 @@
         </activity>
         <activity android:name="cn.nsx.yaoyiyao.WhatsnewDoor" android:theme="@style/Anim_style2" />
         <activity android:name="cn.nsx.yaoyiyao.MainYaoyiyao" android:theme="@style/Anim_style2" />
-        <activity android:name="cn.nsx.yaoyiyao.Login"  android:theme="@android:style/Theme.NoTitleBar" />        
+        <activity android:name="cn.nsx.yaoyiyao.Login"  android:theme="@android:style/Theme.NoTitleBar" /> 
+        <activity android:name="cn.nsx.yaoyiyao.Regist"  android:theme="@android:style/Theme.NoTitleBar" />       
         <activity android:name="cn.nsx.yaoyiyao.Welcome"  android:theme="@style/Anim_style2"  />
         <activity android:name="cn.nsx.yaoyiyao.Whatsnew"  android:theme="@style/Anim_style2" />
         <activity android:name="cn.nsx.yaoyiyao.ChatActivity"  android:theme="@android:style/Theme.NoTitleBar" />

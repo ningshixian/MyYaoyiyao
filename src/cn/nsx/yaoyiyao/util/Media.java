@@ -10,6 +10,7 @@ import java.util.List;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Environment;
+import android.util.Log;
 
 public class Media {
 	
@@ -31,6 +32,9 @@ public class Media {
 			//mMediaPlayer.setDataSource("/mnt/sdcard/music.mp3");
 			mMediaPlayer.prepare();
 			mMediaPlayer.start();
+//			File file = Environment.getExternalStorageDirectory();
+//			String s_name = file.getAbsolutePath();
+//			Log.w("Sam Info: External Storage Direct", s_name);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
