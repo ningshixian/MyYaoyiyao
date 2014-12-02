@@ -15,17 +15,33 @@ import android.util.Log;
 public class Media {
 	
 	/* 构建MediaPlayer对象 */   
-    public MediaPlayer mMediaPlayer = null;//媒体播放器不存在??
-    /* 音乐的路径 */   
-    public static final String MUSIC_PATH = new String("/mnt/sdcard/");
-    /* 播放列表 */   
-    public List<String> mMusicList = new ArrayList<String>();   
+    public static MediaPlayer mMediaPlayer = null;//媒体播放器不存在??
+    /* 音乐的路径 */  
+    public static String MUSIC_PATH = null;
     /* 当前播放歌曲的索引 */   
-    public int currentListItme = 0;    
-    	
+    public int currentListItme = 0;  
+    /* 播放列表 */ 
+    public List<String> mMusicList = null;
+    
+    private static boolean state = false;
+    
+    public static boolean getState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
+	}
+
+	{
+    MUSIC_PATH = new String("/mnt/sdcard/music/");      
+    mMusicList = new ArrayList<String>();  
+    mMediaPlayer = new MediaPlayer();
+	}
+    
 	public void initMediaPlayer()
 	{
-		mMediaPlayer = new MediaPlayer();
+		
 		try {
 			File file = new File(Environment.getExternalStorageDirectory(),"music.mp3");
 			mMediaPlayer.setDataSource(file.getPath());

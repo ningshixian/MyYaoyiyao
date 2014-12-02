@@ -21,9 +21,13 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +49,6 @@ public class MainYaoyiyao extends Activity {
 	private boolean menu_display = false;
 	private PopupWindow menuWindow;//对话框
 	private LayoutInflater inflater;
-	//private TextView dowhat;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,20 +56,12 @@ public class MainYaoyiyao extends Activity {
         setContentView(R.layout.main_weixin);
          //启动activity时不自动弹出软键盘
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); 
-        instance = this;
-        /*
-        mRightBtn = (Button) findViewById(R.id.right_btn);
-        mRightBtn.setOnClickListener(new Button.OnClickListener()
-		{	@Override
-			public void onClick(View v)
-			{	showPopupWindow (MainWeixin.this,mRightBtn);
-			}
-		  });*/
+        instance = this;        
         
         //动画切换
         mTabPager = (ViewPager)findViewById(R.id.tabpager);
         mTabPager.setOnPageChangeListener(new MyOnPageChangeListener());
-               
+                
         mTab1 = (ImageView) findViewById(R.id.img_weixin);
         mTab2 = (ImageView) findViewById(R.id.img_address);
         mTab3 = (ImageView) findViewById(R.id.img_friends);
@@ -129,7 +124,9 @@ public class MainYaoyiyao extends Activity {
 		};
 		
 		mTabPager.setAdapter(mPagerAdapter);
+		
     }
+   
     /**
 	 * 底部头标点击监听
 	 */
@@ -288,10 +285,9 @@ public class MainYaoyiyao extends Activity {
 		startActivity(intent);	
 		//Toast.makeText(getApplicationContext(), "点击了功能按钮", Toast.LENGTH_LONG).show();
       }  	
-	public void startchat(View v) {      //小黑  对话界面
+	public void startchat(View v) {      //机器人小慕对话界面
 		Intent intent = new Intent (MainYaoyiyao.this,ChatActivity.class);			
 		startActivity(intent);	
-		//Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_LONG).show();
       }  
 	public void exit_settings(View v) {   //退出  伪“对话框”，其实是一个activity
 		Intent intent = new Intent (MainYaoyiyao.this,ExitFromSettings.class);			
@@ -319,8 +315,7 @@ public class MainYaoyiyao extends Activity {
 		startActivity(intent);	
 	}
 	public void btn_shake4(View v) {   //摇一摇选择饭点
-		Intent intent = new Intent (MainYaoyiyao.this,ShakeActivity.class);
-		intent.putExtra("message", "res");
+		Intent intent = new Intent (MainYaoyiyao.this,SpinnerActivity.class);		
 		startActivity(intent);	
 	}
 	public void btn_shake5(View v) {   //摇一摇手电筒
@@ -328,6 +323,13 @@ public class MainYaoyiyao extends Activity {
 		intent.putExtra("message", "light");
 		startActivity(intent);	
 	}
+		
+	//设置做什么布局我的位置按钮
+		public void MyLocationBtn(View v) {  
+			Intent intent = new Intent (MainYaoyiyao.this,MyLocation.class);			
+			startActivity(intent);	
+			//Toast.makeText(getApplicationContext(), "点击了功能按钮", Toast.LENGTH_LONG).show();
+	      } 
 	
 }
     

@@ -36,13 +36,11 @@ public class MainTopRightDialog extends Activity {
 		finish();
 		return true;
 	}
-	/*
-	public void exitbutton1(View v) {  
-    	this.finish();    	
-      }  
-	public void exitbutton0(View v) {  
-    	this.finish();
-    	MainWeixin.instance.finish();//¹Ø±ÕMain Õâ¸öActivity
-      }  
-	*/
+	
+	public void chat(View v)
+	{
+		Intent intent = new Intent(MainTopRightDialog.this,ChatActivity.class);
+		startActivity(intent);
+		finish();
+	}
 }

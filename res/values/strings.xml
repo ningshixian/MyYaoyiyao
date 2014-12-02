@@ -5,57 +5,90 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">我的摇一摇</string>
 
-    <string-array name="places">
-        <item >哈少牛肉饭</item>
-        <item >鸭店</item>
-        <item >泽园饭堂</item>
-        <item >鸿园上海大云吞</item>
-        <item >派克</item>
-        <item >后山小街风情</item>
-        <item >金小小包子</item>
-        <item >不吃了~~</item>
-        <item >东北饺子馆</item>
-        <item >香港仔</item>
-        <item >鸿园吃肉</item>
+    <string-array name="morning">
+        <item>金小小包子</item>
+        <item>园府小推车，粽子、面包、蛋糕</item>
+        <item>泽园饭堂。。。</item>
+        <item>豆浆、油条</item>
+        <item>鸿园饭堂。。。</item>
+        <item>金小小包子</item>
+        <item>园府小推车，粽子、面包、蛋糕</item>
+        <item>泽园饭堂。。。</item>
+        <item>金小小包子</item>
+        <item>金小小包子</item>
     </string-array>
-    
-    <string-array name="dowhat" >
-        <item >去圖書館</item>
-        <item >看书kindle</item>
-        <item >听音乐</item>
-        <item >读博客</item>
-        <item >打游戏</item>
-        <item >为人友善</item>
-        <item >逛论坛</item>
-        <item >打球</item>
-        <item >百词斩</item>
-        <item >睡觉</item>
+    <string-array name="yexiao">
+        <item>后山·小街风情·炒粉，炒面，咸骨粥，啤酒</item>
+        <item>泽园楼下的豆腐、肉丸一份</item>
+        <item>泽园饭堂大食卉</item>
+        <item>手抓饼</item>
+        <item>鸿园饭堂。。。</item>
+        <item>北街才记美食</item>
+        <item>后山·小街风情·炒粉，炒面，咸骨粥，啤酒</item>
+        <item>泽园楼下的豆腐、肉丸一份</item>
+        <item>泽园饭堂大食卉</item>
+        <item>手抓饼</item>
     </string-array>
-    
+    <string-array name="beijie">
+        <item>哈少牛肉饭</item>
+        <item>鸭店·雪然居</item>
+        <item>派克·猪杂汤饭、榨菜瘦肉饭、腩肉饭</item>
+        <item>后山小街风情·炒粉，炒面，咸骨粥，啤酒</item>
+        <item>香港仔</item>
+        <item>哈少牛肉饭</item>
+        <item>鸭店·雪然居</item>
+        <item>派克·猪杂汤饭、榨菜瘦肉饭、腩肉饭</item>
+        <item>后山小街风情·炒粉，炒面，咸骨粥，啤酒</item>
+        <item>香港仔</item>
+    </string-array>
+    <string-array name="sushe">
+        <item>泽园饭堂3楼</item>
+        <item>鸿园上海大云吞</item>
+        <item>鸿园吃肉</item>
+        <item>泽园饭堂3楼</item>
+        <item>鸿园上海大云吞</item>
+        <item>鸿园吃肉</item>
+        <item>泽园饭堂3楼</item>
+        <item>鸿园上海大云吞</item>
+        <item>鸿园吃肉</item>
+        <item>泽园饭堂3楼</item>
+    </string-array>
+    <string-array name="dowhat">
+        <item>去圖書館</item>
+        <item>看书kindle</item>
+        <item>听音乐</item>
+        <item>读博客</item>
+        <item>打游戏</item>
+        <item>为人友善</item>
+        <item>逛论坛</item>
+        <item>打球</item>
+        <item>百词斩</item>
+        <item>睡觉</item>
+    </string-array>
     <string-array name="xiaohua">
-        <item >病人：“医生，你把剪刀留在我肚子里了。”“没关系，我还有一把。”</item>
-        <item >法官：你为什么要印假钞？被告无辜地说：因为我不会印真钞。</item>
-        <item >上联：哈哈哈哈哈，下联：嘿嘿嘿嘿嘿。横批：神经有病</item>
-        <item >贼甲：“快数数今天一共抢了多少钱？”贼乙：“不用，明天看看报纸就知道了。”</item>
-        <item >老师：“彼得，你知道老鼠能活多少年吗？”彼得：“这个就要看猫的心思了。”</item>
-        <item >女儿问妈妈：“爸爸从前害羞吗？” “要是他不害羞，你现在至少大四岁！”</item>
-        <item >别紧张,我不是什么好人…… </item>
-        <item >我看了作业一分钟然后手机吃醋了我哄了它一个小时。。</item>
-        <item >活了二十多年，没能为祖国、为人民做点什么，每思及此，伤心欲绝 </item>
-        <item >客官 您是打尖还是住店 --我大便 </item>
-        <item >孔子曰：中午不睡，下午崩溃。孟子曰：孔子说的对！ </item>
-        <item >作为失败的典型,你实在是太成功了  </item>
-        <item >多多微笑，阴天谨防情绪感冒！  </item>
-        <item >我这人从不记仇,一般有仇当场我就报了。 </item>
-        <item >别在我的坟前哭。脏了我轮回的路。  </item>
-        <item >通往成功的路，总是在施工中。 </item>
-        <item >我不下地狱，谁爱下谁下 </item>
-        <item >挣着卖白菜的钱，操着卖白粉的心 </item>
-        <item >漫漫人生路，总会错几步。 </item>
-        <item >我又不是人民币，怎么能让人人都喜欢我？！ </item>
-        <item >有人说，旋转木马是最残忍的游戏，彼此追逐却有永恒的距离 </item>
-        <item >觉得不快乐，是因为追求的不是“幸福”，而是“比别人幸福”。  </item>
-        <item >单身并不难，难的是应付那些千方百计想让你结束单身的人 。 </item>
+        <item>病人：“医生，你把剪刀留在我肚子里了。”“没关系，我还有一把。”</item>
+        <item>法官：你为什么要印假钞？被告无辜地说：因为我不会印真钞。</item>
+        <item>上联：哈哈哈哈哈，下联：嘿嘿嘿嘿嘿。横批：神经有病</item>
+        <item>贼甲：“快数数今天一共抢了多少钱？”贼乙：“不用，明天看看报纸就知道了。”</item>
+        <item>老师：“彼得，你知道老鼠能活多少年吗？”彼得：“这个就要看猫的心思了。”</item>
+        <item>女儿问妈妈：“爸爸从前害羞吗？” “要是他不害羞，你现在至少大四岁！”</item>
+        <item>别紧张,我不是什么好人…… </item>
+        <item>我看了作业一分钟然后手机吃醋了我哄了它一个小时。。</item>
+        <item>活了二十多年，没能为祖国、为人民做点什么，每思及此，伤心欲绝 </item>
+        <item>客官 您是打尖还是住店 --我大便 </item>
+        <item>孔子曰：中午不睡，下午崩溃。孟子曰：孔子说的对！ </item>
+        <item>作为失败的典型,你实在是太成功了  </item>
+        <item>多多微笑，阴天谨防情绪感冒！  </item>
+        <item>我这人从不记仇,一般有仇当场我就报了。 </item>
+        <item>别在我的坟前哭。脏了我轮回的路。  </item>
+        <item>通往成功的路，总是在施工中。 </item>
+        <item>我不下地狱，谁爱下谁下 </item>
+        <item>挣着卖白菜的钱，操着卖白粉的心 </item>
+        <item>漫漫人生路，总会错几步。 </item>
+        <item>我又不是人民币，怎么能让人人都喜欢我？！ </item>
+        <item>有人说，旋转木马是最残忍的游戏，彼此追逐却有永恒的距离 </item>
+        <item>觉得不快乐，是因为追求的不是“幸福”，而是“比别人幸福”。  </item>
+        <item>单身并不难，难的是应付那些千方百计想让你结束单身的人 。 </item>
     </string-array>
-    
+
 </resources>

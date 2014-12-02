@@ -16,7 +16,7 @@
       		<TextView
         		android:layout_width="wrap_content" 
         		android:layout_height="wrap_content" 
-        		android:text="找事做"
+        		android:text="你想作甚"
         		android:layout_centerInParent="true"
         		android:textSize="20sp"		
 				android:textColor="#ffffff" /> 
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/head"
                 android:padding="7dp"
-                android:text="小黑"
+                android:text="机器人小慕"
                 android:textColor="#000" />
             <TextView
                 android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
                 android:layout_toRightOf="@id/head"
                 android:layout_alignParentBottom="true"
                 android:padding="7dp"
-                android:text="欠我的1000块什么时候还...."
+                android:text=""
                 android:textColor="#666" />            
             
         </RelativeLayout>

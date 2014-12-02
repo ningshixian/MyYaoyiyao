@@ -1,35 +1,39 @@
 package cn.nsx.yaoyiyao;
 
 import java.io.File;
-import java.io.FilenameFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.security.InvalidParameterException;
 
 import com.ant.liao.GifView;
 import com.ant.liao.GifView.GifImageType;
 
 import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Movie;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.SlidingDrawer.OnDrawerCloseListener;
 import android.widget.SlidingDrawer.OnDrawerOpenListener;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 import cn.nsx.yaoyiyao.R;
 import cn.nsx.yaoyiyao.ShakeListener.OnShakeListener;
 import cn.nsx.yaoyiyao.util.Media;
@@ -50,9 +54,13 @@ public class ShakeActivity extends Activity {
 	private String[] what;// 存儲的事情
 	private String[] xiaohua;// 存儲的笑话
 	private String[] res;// 存儲的饭点
-	private String message;// intent对象的putExtra
 
-	public MediaPlayer mMediaPlayer = null;
+	private String message;// intent对象的putExtra
+	private String places;
+	private String time;
+
+	private Media media = new Media();
+	public MediaPlayer mMediaPlayer = media.mMediaPlayer;
 
 	private SlidingDrawer mDrawer;
 	private Button mDrawerBtn;
@@ -63,11 +71,6 @@ public class ShakeActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shake_activity);
-
-		// 获取strings.xml中dowhat数组
-		what = getResources().getStringArray(R.array.dowhat);
-		xiaohua = getResources().getStringArray(R.array.xiaohua);
-		res = getResources().getStringArray(R.array.places);
 
 		mVibrator = (Vibrator) getApplication().getSystemService(
 				VIBRATOR_SERVICE);
@@ -122,24 +125,24 @@ public class ShakeActivity extends Activity {
 			public void onShake() {
 				if (sf.getState() == 1) {
 					Log.d("sf.state", "1");
-					ShakeFloat.instance.finish();//关掉ShakeFloat这个活动
+					ShakeFloat.instance.finish();// 关掉ShakeFloat这个活动
 				} else if (sf.getState() == 0) {
 					Log.d("sf.state", "0");
 				}
+				if (mMediaPlayer.isPlaying()) {
+					mMediaPlayer.pause();
+				}
 
 				if ("dowhat".equals(message)) {
-					// 确保摇之前和摇的同时，shakeover布局隐藏
-					// shakeover.setVisibility(View.GONE);
+					// 获取strings.xml中dowhat数组
+					what = getResources().getStringArray(R.array.dowhat);
 					startAnim(); // 开始 摇一摇手掌动画
 					mShakeListener.stop();
 					startVibrato(); // 开始 震动
 					new Handler().postDelayed(new Runnable() {
 						@Override
 						public void run() {
-							// Toast.makeText(getApplicationContext(),
-							// "抱歉，暂时没有找到\n在同一时刻摇一摇的人。\n再试一次吧！",
-							// 500).setGravity(Gravity.CENTER,0,0).show();
-							// 产生一个1~10的随机整数
+
 							int random = (int) (Math.random() * 10);
 							String dowhat = what[random].toString();
 							Intent intent = new Intent(ShakeActivity.this,
@@ -160,7 +163,7 @@ public class ShakeActivity extends Activity {
 				else if ("music".equals(message)) {
 					/* 更新显示播放列表 */
 					// musicList();
-					final Media media = new Media();
+					
 					// 确保摇之前和摇的同时，shakeover布局隐藏
 					// shakeover.setVisibility(View.GONE);
 					startAnim(); // 开始 摇一摇手掌动画
@@ -177,7 +180,7 @@ public class ShakeActivity extends Activity {
 							media.currentListItme = random;// 当前歌曲索引
 							// media.playMusic(media.MUSIC_PATH + "music.mp3");
 							media.initMediaPlayer();
-
+							media.setState(true);//说明音乐正在播放
 							// shakeText.setText(mMusicList.get(1).toString());
 							// shakeText.setText(media.mMediaPlayer.getDuration());
 							// shakeover.setVisibility(View.VISIBLE);
@@ -189,8 +192,7 @@ public class ShakeActivity extends Activity {
 				}
 
 				else if ("xiaohua".equals(message)) {
-					// 确保摇之前和摇的同时，shakeover布局隐藏
-					// shakeover.setVisibility(View.GONE);
+					xiaohua = getResources().getStringArray(R.array.xiaohua);
 					startAnim(); // 开始 摇一摇手掌动画
 					mShakeListener.stop();
 					startVibrato(); // 开始 震动
@@ -229,11 +231,11 @@ public class ShakeActivity extends Activity {
 								gf1.setShowDimension(600, 600);
 								// 设置Gif图片源
 								int random = (int) (Math.random() * 10);
-								if (random >= 0 && random <= 2) {
+								if (random >= 0 && random <= 1) {
 									gf1.setGifImage(R.drawable.gif1);
-								} else if (random >= 3 && random <= 5) {
+								} else if (random >= 2 && random <= 4) {
 									gf1.setGifImage(R.drawable.gif2);
-								} else if (random >= 6 && random <= 8) {
+								} else if (random >= 5 && random <= 7) {
 									gf1.setGifImage(R.drawable.gif3);
 								} else {
 									gf1.setGifImage(R.drawable.gif4);
@@ -250,8 +252,8 @@ public class ShakeActivity extends Activity {
 						}
 					}, 2000);
 				} else if ("res".equals(message)) {
-					// 确保摇之前和摇的同时，shakeover布局隐藏
-					// shakeover.setVisibility(View.GONE);
+					places = getIntent().getStringExtra("places");
+					time = getIntent().getStringExtra("time");
 					startAnim(); // 开始 摇一摇手掌动画
 					mShakeListener.stop();
 					startVibrato(); // 开始 震动
@@ -259,7 +261,26 @@ public class ShakeActivity extends Activity {
 						@Override
 						public void run() {
 							// 产生一个1~10的随机整数
-							int random = (int) (Math.random() * 11);
+							int random = (int) (Math.random() * 10);
+							if ("早上".equals(time)) {
+								res = getResources().getStringArray(
+										R.array.morning);
+
+							} else if ("夜宵时间".equals(time)) {
+								res = getResources().getStringArray(
+										R.array.yexiao);
+
+							} else if ("北街+后山".equals(time)) {
+								res = getResources().getStringArray(
+										R.array.beijie);
+
+							} else if ("宿舍".equals(time)) {
+								res = getResources().getStringArray(
+										R.array.sushe);
+							} else {
+								res = getResources().getStringArray(
+										R.array.beijie);
+							}
 							String restaurant = res[random].toString();
 							Intent intent = new Intent(ShakeActivity.this,
 									ShakeFloat.class);
@@ -275,11 +296,12 @@ public class ShakeActivity extends Activity {
 						}
 					}, 2000);
 				}
+
 			}
 		});
 
 	}
-
+	
 	public void startAnim() { // 定义摇一摇动画动画
 		AnimationSet animup = new AnimationSet(true);
 		TranslateAnimation mytranslateanimup0 = new TranslateAnimation(
@@ -333,8 +355,8 @@ public class ShakeActivity extends Activity {
 		if (mShakeListener != null) {
 			mShakeListener.stop();
 		}
-		if (mMediaPlayer != null) {
-			mMediaPlayer.stop();
+		if (mMediaPlayer.isPlaying()) {
+			mMediaPlayer.stop();			
 			mMediaPlayer.release();
 			this.finish();
 		}

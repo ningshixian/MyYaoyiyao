@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bar" >
+
+        <TextView
+            android:id="@+id/spinnerText01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="选择吃饭时间：" >
+        </TextView>
+
+        <Spinner
+            android:id="@+id/Spinner01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerText01" >
+        </Spinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/title_bar" >
+
+        <TextView
+            android:id="@+id/spinnerText02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="你所在的地点：" >
+        </TextView>
+
+        <Spinner
+            android:id="@+id/Spinner02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerText02" >
+        </Spinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp" >
+
+        <Button
+              android:id="@+id/SpinnerButton"
+              android:layout_width="110dp"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
+              android:text="开始摇一摇"
+              android:textSize="16sp"
+              android:textColor="#333"
+              android:background="@drawable/btn_style_white"
+              android:gravity="center"
+			  android:onClick="exitbutton1"
+              />
+    </RelativeLayout>
+
+</LinearLayout>
